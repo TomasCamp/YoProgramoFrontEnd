@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.img-portada{
+    height: 60vh;
+}
+.img-perfil{
+    height: 30vh;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin-top: -20vh;
+    margin-left: 30px;
+}
+.img-and-name{
+    align-items: flex-end;
+}
+.img-artic{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin: 0 20px;
+    border-radius: 5px;
+}
+.bar-prog{
+    max-height: 30px;
+    min-height: 30px;
+}
+.login{
+    padding: 25px;
+    background-color: #0d6efd;
+    position: absolute;
+    height: 50vh;
+    width: 50vw;
+    min-width: 288px;
+    max-width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.login h2{
+    color: #fff;
+}
+.login form{
+    flex-grow: 0.5;
+}
+.login input {
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.div-perfil{
+    position: relative;
+}
+.edit{
+    position: absolute;
+    top: -40%;
+    left: 56%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 25px;
+    justify-content: center;
+}
