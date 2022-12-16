@@ -4,6 +4,7 @@
 }
 .img-portada{
     height: 60vh;
+    width: 100%;
 }
 .img-perfil{
     height: 30vh;
@@ -55,6 +56,15 @@
     position: relative;
 }
 .edit{
+    border-radius: 50%;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 25px;
+    justify-content: center;
+}
+.edit-perf{
     position: absolute;
     top: -40%;
     left: 56%;
@@ -66,4 +76,30 @@
     text-align: center;
     font-size: 25px;
     justify-content: center;
+}
+.edit-port{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 35%;
+    left: 50%;
+}
+.buttonTrash{
+    margin-bottom: 5px;
+}
+
+
+@media screen and (max-width: 767px){
+    .img-and-name{
+        align-items: center;
+    }
+    .img-perfil{
+        margin-left: 0;
+    }
+    .edit-perf{
+        left: 50%;
+    }
+    .buttonTrash{
+        margin-bottom: 0;
+        margin-right: 5px;
+    }
 }
