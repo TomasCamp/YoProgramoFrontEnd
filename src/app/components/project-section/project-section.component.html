@@ -1,0 +1,7 @@
+<section class="row px-4 mt-4">
+    <h2>Proyectos</h2>
+    <div class="d-flex flex-row flex-wrap justify-content-evenly p-3 align-items-center" 
+    *ngFor = "let project of projects">
+        <app-project-tag [project] = "project"></app-project-tag>
+    </div>
+</section>

@@ -1,0 +1,6 @@
+<section class="row px-4 mt-4">
+    <h2>Habilidades</h2>
+    <div class="px-5 d-flex flex-column" *ngFor = "let skill of skills">
+        <app-skill-tag [skill] = "skill"></app-skill-tag>
+    </div>
+</section>

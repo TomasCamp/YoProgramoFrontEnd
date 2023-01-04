@@ -1,0 +1,6 @@
+<section class="row px-4 mt-4">
+    <h2>Educación</h2>
+    <div class="d-flex flex-wrap" *ngFor = "let study of studys">
+        <app-study-tag [study] = "study"></app-study-tag>
+    </div>
+</section>

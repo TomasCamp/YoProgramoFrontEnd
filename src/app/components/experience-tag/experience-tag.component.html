@@ -1,0 +1,12 @@
+<article class="d-flex flex-column flex-md-row flex-wrap p-3 align-items-center">
+    <img class="col-5 col-md-2 img-artic mx-3" src="./assets/images/gris.jpg" alt="">
+    <div class="col-md-8">
+        <h3>{{experience.job}}</h3>
+        <p>{{experience.lapse}}</p>
+        <p>{{experience.activities}}</p>
+    </div>
+    <div class="ms-auto d-flex flex-md-column justify-content-evenly" *ngIf = "access">
+        <button class="btn btn-danger buttonTrash"><i class="bi bi-trash"></i></button>
+        <button class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+    </div>
+</article>
