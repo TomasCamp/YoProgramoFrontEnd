@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AccountHandlingService {
-
+  logIn: boolean = false;
   constructor() { }
+
+  isLogIn(): boolean {
+    return this.logIn;
+  }
 }

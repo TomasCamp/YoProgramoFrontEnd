@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountHandlingService } from './services/account-handling.service';
 import { OptionsHandlingService } from './services/options-handling.service';
 
 @Component({
@@ -13,12 +14,17 @@ export class AppComponent implements OnInit{
   skill: boolean;
   study: boolean;
 
-  constructor(private optionsHandling: OptionsHandlingService){
+  constructor(private optionsHandling: OptionsHandlingService, 
+              private accountHandling: AccountHandlingService){
   }
   ngOnInit(): void {
     this.experience = this.optionsHandling.isExperience();
     this.project = this.optionsHandling.isProject();
     this.skill = this.optionsHandling.isSkill();
     this.study = this.optionsHandling.isStudy();
+  }
+
+  isLogIn(): boolean {
+    return this.accountHandling.isLogIn();
   }
 }

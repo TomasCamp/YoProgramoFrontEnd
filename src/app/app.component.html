@@ -17,8 +17,8 @@
                         <a class="nav-link active" href="#"><i class="bi bi-github"></i></a>
                     </li>
                 </ul>
-                <button type="button" class="btn btn-light" id="IniciarSesion">Iniciar Sesión</button>
-                <button type="button" class="btn btn-danger" id="CerrarSesion" hidden="true">Cerrar Sesión</button>
+                <button type="button" class="btn btn-light" id="IniciarSesion" *ngIf = "!isLogIn()">Iniciar Sesión</button>
+                <button type="button" class="btn btn-danger" id="CerrarSesion" *ngIf = "isLogIn()">Cerrar Sesión</button>
             </div>
         </div>
     </nav>

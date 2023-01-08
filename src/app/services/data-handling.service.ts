@@ -30,6 +30,8 @@ export class DataHandlingService {
     new Skill(this.texto, 20, 1), 
     new Skill(this.texto, 30, 2)
   ];
+  private resumeProvicional: string = "Lorem ipsum bla bla bla bla bla bla bla bla bla bal bla lbal.";
+  private nameProvicional: string = "Lorem ipsum";
   
   constructor() { }
 

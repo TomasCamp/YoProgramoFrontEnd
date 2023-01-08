@@ -13,6 +13,7 @@ import { StudySectionComponent } from './components/study-section/study-section.
 import { StudyTagComponent } from './components/study-tag/study-tag.component';
 import { SkillTagComponent } from './components/skill-tag/skill-tag.component';
 import { ProjectTagComponent } from './components/project-tag/project-tag.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProjectTagComponent } from './components/project-tag/project-tag.compon
     StudySectionComponent,
     StudyTagComponent,
     SkillTagComponent,
-    ProjectTagComponent
+    ProjectTagComponent,
+    AboutMeComponent
   ],
   imports: [
     BrowserModule,
