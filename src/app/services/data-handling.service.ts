@@ -47,6 +47,9 @@ export class DataHandlingService {
   getSkills(): Skill[] {
     return this.skills;
   }
+  getResume(): string {
+    return this.resumeProvicional;
+  }
 
   deleteExperience(experience: Experience): void {
     this.experiences.splice(experience.id, 1);
@@ -89,5 +92,8 @@ export class DataHandlingService {
   }
   editSkill(skill: Skill): void {
     this.skills.splice(skill.id, 1, skill);
+  }
+  editResume(text: string): void {
+    this.resumeProvicional = text;
   }
 }

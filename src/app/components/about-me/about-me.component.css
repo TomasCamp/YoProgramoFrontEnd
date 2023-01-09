@@ -1,0 +1,12 @@
+section{
+    border-bottom: 1px solid #ccc;
+    
+}
+textarea{
+    resize: none;
+    height: 100px;
+    max-height: 200px;
+}
+p{
+    max-width: 100%;
+}
