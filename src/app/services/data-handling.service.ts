@@ -11,19 +11,19 @@ export class DataHandlingService {
   private texto = 'Lorem';
 
   private experiences: Experience[] = [
-    new Experience(this.texto, this.texto, this.texto, this.texto, 0), 
-    new Experience(this.texto, this.texto, this.texto, this.texto, 1), 
-    new Experience(this.texto, this.texto, this.texto, this.texto, 2)
+    new Experience(this.texto, "2001-01-01", "2001-01-01", this.texto, this.texto, 0), 
+    new Experience(this.texto, "2001-01-01", "2001-01-01", this.texto, this.texto, 1), 
+    new Experience(this.texto, "2001-01-01", "2001-01-01", this.texto, this.texto, 2)
   ];
   private studys: Study[] = [
-    new Study(this.texto, this.texto, this.texto, this.texto, this.texto, 0), 
-    new Study(this.texto, this.texto, this.texto, this.texto, this.texto, 1), 
-    new Study(this.texto, this.texto, this.texto, this.texto, this.texto, 2)
+    new Study(this.texto, this.texto, "2001-01-01", "2001-01-01", this.texto, this.texto, 0), 
+    new Study(this.texto, this.texto, "2001-01-01", "2001-01-01", this.texto, this.texto, 1), 
+    new Study(this.texto, this.texto, "2001-01-01", "2001-01-01", this.texto, this.texto, 2)
   ];
   private projects: Project[] = [
-    new Project(this.texto, this.texto, this.texto, this.texto, this.texto, 0), 
-    new Project(this.texto, this.texto, this.texto, this.texto, this.texto, 1), 
-    new Project(this.texto, this.texto, this.texto, this.texto, this.texto, 2)
+    new Project(this.texto, "2001-01-01", "2001-01-01", this.texto, this.texto, this.texto, 0), 
+    new Project(this.texto, "2001-01-01", "2001-01-01", this.texto, this.texto, this.texto, 1), 
+    new Project(this.texto, "2001-01-01", "2001-01-01", this.texto, this.texto, this.texto, 2)
   ];
   private skills: Skill[] = [
     new Skill(this.texto, 10, 0), 

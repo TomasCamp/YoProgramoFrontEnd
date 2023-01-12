@@ -1,0 +1,50 @@
+.lapseExp{
+    display: flex;
+    flex-direction: column;
+}
+form{
+    position: fixed;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #fff;
+    padding: 17px;
+    border-radius: 15px;
+    z-index: 2;
+}
+.backShadow{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #1115;
+    z-index: 1;
+}
+textarea{
+    height: 25vh;
+    resize: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+input{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+textarea,input:focus{
+    outline: none;
+}
+form button{
+    margin-top: 5px;
+}
+.buttonTrash{
+    margin-bottom: 5px;
+}
+@media screen and (max-width: 767px){
+    .buttonTrash{
+        margin-bottom: 0;
+        margin-right: 5px;
+    }
+}

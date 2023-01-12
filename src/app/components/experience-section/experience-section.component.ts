@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Experience } from 'src/app/models/experience.model';
 import { AccountHandlingService } from 'src/app/services/account-handling.service';
 import { DataHandlingService } from 'src/app/services/data-handling.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-experience-section',
@@ -11,6 +12,9 @@ import { DataHandlingService } from 'src/app/services/data-handling.service';
 export class ExperienceSectionComponent implements OnInit{
 
   experiences: Experience[];
+  formExperience: boolean = false;
+  auxExperience: Experience;
+
   
   constructor(private dataHandling: DataHandlingService,
               private accountHandling: AccountHandlingService){}
@@ -25,8 +29,24 @@ export class ExperienceSectionComponent implements OnInit{
   removeTag(experience: Experience){
     this.dataHandling.deleteExperience(experience);
   }
-  editExperience(experience: Experience) {
-
+  editForm(experience: Experience): void {
+    this.auxExperience = new Experience(experience.job, experience.startLapse, 
+                                        experience.endLapse, experience.companyLogo, 
+                                        experience.activities, experience.id);
+    this.formExperience = true;
   }
-  
+  addForm(): void {
+    this.auxExperience = new Experience("", "", "", "", "");
+    this.formExperience = true;
+  }
+  cancelForm(): void {
+    this.formExperience = false;
+  }
+  submitForm(): void {
+    if (this.auxExperience.isComplete()) {
+      if(this.auxExperience.id == undefined) this.dataHandling.addExperience(this.auxExperience);
+      else this.dataHandling.editExperience(this.auxExperience);
+      this.formExperience = false;
+    }
+  }
 }

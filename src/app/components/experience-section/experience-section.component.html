@@ -1,27 +1,51 @@
 <section class="row px-4 mt-4">
-    <h2>Experiencia</h2>
-    <div class="d-flex flex-wrap" *ngFor = "let experience of experiences">
-        <article class="d-flex flex-column flex-md-row flex-wrap p-3 align-items-center">
-            <img class="col-5 col-md-2 img-artic mx-3" src="./assets/images/gris.jpg" alt="">
-            <div class="col-md-8">
-                <h3>{{experience.job}}</h3>
-                <p>{{experience.lapse}}</p>
-                <p>{{experience.activities}}</p>
-            </div>
-            <div class="ms-auto d-flex flex-md-column justify-content-evenly" *ngIf = "isLogged()">
-                <button class="btn btn-danger buttonTrash" (click)="removeTag(experience)"><i class="bi bi-trash"></i></button>
-                <button class="btn btn-primary" (clcik)="editExperience(experience)"><i class="bi bi-pencil"></i></button>
-            </div>
-        </article>
-        
+    
+    <div class="d-flex justify-content-between">
+        <h2>Experiencia</h2>
+        <button class="btn btn-primary" (click)="addForm()"><i class="bi bi-plus"></i></button>
     </div>
+
+    <article class="d-flex flex-column flex-md-row flex-wrap p-3 align-items-center" *ngFor = "let experience of experiences">
+        <img class="col-5 col-md-2 img-artic mx-3" src="./assets/images/gris.jpg" alt="">
+        <div class="col-md-8">
+            <h3>{{experience.job}}</h3>
+            <p>{{experience.startLapse.replace("-", "/").replace("-", "/")}} - {{experience.endLapse.replace("-", "/").replace("-", "/")}}</p>
+            <p>{{experience.activities}}</p>
+        </div>
+        <div class="ms-auto d-flex flex-md-column justify-content-evenly" *ngIf="isLogged()">
+            <button class="btn btn-danger buttonTrash" (click)="removeTag(experience)"><i class="bi bi-trash"></i></button>
+            <button class="btn btn-primary" (click)="editForm(experience)"><i class="bi bi-pencil"></i></button>
+        </div>
+    </article>
+        
 </section>
-<form class="d-flex flex-column">
-    <input type="text">
-    <input type="number">
-    <input type="number">
-    this.job = job;
-    this.lapse = lapse;
-    this.companyLogo = companyLogo;
-    this.activities = activities;
+
+<div class="backShadow" *ngIf="formExperience" (click)="cancelForm()"></div>
+
+<form class="d-flex flex-column bg-primary" (ngSubmit)="submitForm()"  *ngIf="formExperience">
+    <h3 class="text-light">Experiencia</h3>
+
+    <label class="text-light" for="job">Puesto de Trabajo:</label>
+    <input type="text" id="job" [(ngModel)]="auxExperience.job" name="job" required="true">
+
+    <div class="row">
+        <div class="col-6 lapseExp">
+            <label class="text-light" for="startExp">Inicio:</label>
+            <input type="date" id="startExp" [(ngModel)]="auxExperience.startLapse" name="startLapse" required="true">
+        </div>
+        <div class="col-6 lapseExp">
+            <label class="text-light" for="endExp">Final:</label>
+            <input type="date" id="endExp" [(ngModel)]="auxExperience.endLapse" name="endLapse" required="true">
+        </div>
+    </div>
+
+    <label class="text-light" for="imgCompanyExp">Logo de la Empresa:</label>
+    <input class="text-light" type="file" accept="image/*" id="imgCompanyExp" [(ngModel)]="auxExperience.companyLogo" 
+        name="companyLogo">
+    
+    <label class="text-light" for="activityExp">Actividades en el puesto:</label>
+    <textarea id="activityExp" [(ngModel)]="auxExperience.activities" name="activities" required="true"></textarea>
+    
+    <button class="btn btn-light" type="submit">Enviar</button>
+    <button class="btn btn-danger" (click)="cancelForm()">Cancelar</button>
 </form>

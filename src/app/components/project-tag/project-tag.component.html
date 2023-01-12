@@ -2,7 +2,7 @@
     <img src="./assets/images/gris.jpg" class="card-img-top" alt="...">
     <div class="card-body">
         <h3 class="card-title">{{project.name}}</h3>
-        <p class="card-text">{{project.lapse}}</p>
+        <p class="card-text">{{project.startLapse.toLocaleDateString()}} - {{project.endLapse.toLocaleDateString()}}</p>
         <p class="card-text">{{project.description}}</p>
         <div class="d-flex">
             <a [href] = "project.link" class="btn btn-primary">Ver más</a>

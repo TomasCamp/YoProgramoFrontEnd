@@ -3,7 +3,7 @@
     <div class="col-md-8">
         <h3>{{study.title}}</h3>
         <p>{{study.institution}}</p>
-        <p>{{study.lapse}}</p>
+        <p>{{study.startLapse.toLocaleDateString()}} - {{study.endLapse.toLocaleDateString()}}</p>
         <p>{{study.description}}</p>
     </div>
     <div class="ms-auto d-flex flex-md-column justify-content-evenly">
