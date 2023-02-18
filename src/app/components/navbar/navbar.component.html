@@ -1,0 +1,42 @@
+<nav class="row navbar navbar-expand-lg navbar-dark bg-primary p-1">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="" alt="">
+            Argentina Programa
+        </a>
+        <button class="navbar-toggler my-2"type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-lg-row align-items-center">
+                <li class="nav-item fs-3">
+                    <a class="nav-link active" aria-current="page" [href]="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                </li>
+                <li class="nav-item fs-3">
+                    <a class="nav-link active" [href]="github" target="_blank"><i class="bi bi-github"></i></a>
+                </li>
+            </ul>
+            <button type="button" class="btn btn-light" id="IniciarSesion" *ngIf = "!isLogIn()" (click)="openForm()">Iniciar Sesión</button>
+            <button type="button" class="btn btn-danger" id="CerrarSesion" *ngIf = "isLogIn()" (click)="logOut()">Cerrar Sesión</button>
+        </div>
+    </div>
+</nav>
+
+<div class="backShadow" *ngIf="form" (click)="cancelForm()"></div>
+
+<form class="d-flex flex-column bg-primary formSection" (ngSubmit)="submitForm()"  *ngIf="form">
+    <h3 class="text-light">Iniciar Sesión</h3>
+
+    <label class="text-light" for="email">Correo Electrónico:</label>
+    <input type="email" id="email" [(ngModel)]="email" name="email" required="true">
+
+
+    <label class="text-light" for="password">Contraseña:</label>
+    <input type="password" id="password" [(ngModel)]="password" name="password">
+
+    <div>
+        <button class="btn btn-light" type="submit">Enviar</button>
+        <button class="btn btn-danger" (click)="cancelForm()">Cancelar</button>
+    </div>
+    
+</form>

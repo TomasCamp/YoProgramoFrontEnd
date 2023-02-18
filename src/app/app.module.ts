@@ -9,11 +9,10 @@ import { ExperienceSectionComponent } from './components/experience-section/expe
 import { ProjectSectionComponent } from './components/project-section/project-section.component';
 import { SkillSectionComponent } from './components/skill-section/skill-section.component';
 import { StudySectionComponent } from './components/study-section/study-section.component';
-import { StudyTagComponent } from './components/study-tag/study-tag.component';
-import { SkillTagComponent } from './components/skill-tag/skill-tag.component';
-import { ProjectTagComponent } from './components/project-tag/project-tag.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +21,9 @@ import { FormsModule } from '@angular/forms';
     ProjectSectionComponent,
     SkillSectionComponent,
     StudySectionComponent,
-    StudyTagComponent,
-    SkillTagComponent,
-    ProjectTagComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    NavbarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

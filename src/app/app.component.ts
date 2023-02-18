@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountHandlingService } from './services/account-handling.service';
+import { Account } from './models/account.model';
+import { Options } from './models/options.model';
+import { DataHandlingService } from './services/data-handling.service';
 import { OptionsHandlingService } from './services/options-handling.service';
 
 @Component({
@@ -8,23 +10,16 @@ import { OptionsHandlingService } from './services/options-handling.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  account: Account;
+  sections: Options;
 
-  experience: boolean;
-  project: boolean;
-  skill: boolean;
-  study: boolean;
-
-  constructor(private optionsHandling: OptionsHandlingService, 
-              private accountHandling: AccountHandlingService){
+  constructor(private optionsHandling: OptionsHandlingService,
+              private dataHandling: DataHandlingService){
   }
   ngOnInit(): void {
-    this.experience = this.optionsHandling.isExperience();
-    this.project = this.optionsHandling.isProject();
-    this.skill = this.optionsHandling.isSkill();
-    this.study = this.optionsHandling.isStudy();
+    this.sections = this.optionsHandling.getSections();
+    this.account = this.dataHandling.getAccount();
   }
 
-  isLogIn(): boolean {
-    return this.accountHandling.isLogIn();
-  }
+  
 }

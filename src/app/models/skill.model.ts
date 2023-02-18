@@ -9,4 +9,8 @@ export class Skill {
         this.percentage = percentage;
         if(id !== undefined) this.id = id;
     }
+
+    isComplete(): boolean {
+        return this.name != "" && this.percentage > 0 && this.percentage <= 100; 
+    }
 }

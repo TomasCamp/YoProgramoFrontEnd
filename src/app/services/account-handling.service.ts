@@ -4,10 +4,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AccountHandlingService {
-  logIn: boolean = true;
+  accountLogIn: boolean = true;
   constructor() { }
 
   isLogIn(): boolean {
-    return this.logIn;
+    return this.accountLogIn;
+  }
+  logIn(email: string, password: string): boolean {
+    if (email.includes('@')) {
+      this.accountLogIn = true;
+    }
+    return this.accountLogIn;
+    
+  }
+  logOut(): void {
+    this.accountLogIn = false;
   }
 }

@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Options } from '../models/options.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OptionsHandlingService {
-
+  private sections: Options = new Options(true, true, true, true, true);
   constructor() { }
 
-  isExperience(): boolean {
-    return true;
+  getSections(): Options {
+    return this.sections;
   }
-  isProject(): boolean {
-    return true;
-  }
-  isSkill(): boolean {
-    return true;
-  }
-  isStudy(): boolean {
-    return true;
-  }
-  isAccess(): boolean {
-    return true;
+
+  changeSections(sections: Options): void {
+    this.sections.aboutMe = sections.aboutMe;
+    this.sections.experience = sections.experience;
+    this.sections.study = sections.study;
+    this.sections.skill = sections.skill;
+    this.sections.project = sections.project;
+    console.log(this.sections);
   }
 }

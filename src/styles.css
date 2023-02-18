@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+section{
+    border-bottom: 1px solid #ccc;
+}
+.backShadow{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #1115;
+    z-index: 1;
+}
+.formSection{
+    position: fixed;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #fff;
+    padding: 17px;
+    border-radius: 15px;
+    z-index: 2;
+}
+.formSection button{
+    margin-top: 5px;
+}
+.formSection textarea:focus,.formSection input:focus{
+    outline: none;
+}
+.formSection textarea{
+    height: 25vh;
+    resize: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+.formSection input{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.lapse{
+    display: flex;
+    flex-direction: column;
+}
+.img-artic{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin: 0 20px;
+    border-radius: 5px;
+}
+.buttonTrash{
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 767px){
+    .buttonTrash{
+        margin-bottom: 0;
+        margin-right: 5px;
+    }
+    .img-artic{
+        height: 175px;
+        margin: 0;
+    }
+}
+h1, h2, h3, p{
+    overflow: hidden;
+}

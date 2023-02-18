@@ -1,6 +1,63 @@
-<section class="row px-4 mt-4">
-    <h2>Educación</h2>
-    <div class="d-flex flex-wrap" *ngFor = "let study of studys">
-        <app-study-tag [study] = "study"></app-study-tag>
+<section class="row px-sm-4 mt-4 mx-3">
+
+    <div class="d-flex justify-content-between">
+        <h2>Educación</h2>
+        <button class="btn btn-primary" (click)="addForm()" *ngIf="isLogged()"><i class="bi bi-plus"></i></button>
     </div>
+    
+    <div class="d-flex flex-wrap justify-content-evenly div-content">
+        
+        <article class="d-flex flex-column flex-md-row flex-wrap align-items-md-center my-3" *ngFor = "let study of studys">
+            
+            <img class="col-md-2 img-artic" [src]="study.img" alt="">
+            
+            <div class="col-md-8">
+                <h3>{{study.title}}</h3>
+                <p>{{study.institution}}</p>
+                <p>{{study.startLapse.replace("-", "/").replace("-", "/")}} - {{study.endLapse.replace("-", "/").replace("-", "/")}}</p>
+                <p>{{study.description}}</p>
+            </div>
+
+            <div class="ms-auto d-flex flex-md-column justify-content-evenly" *ngIf="isLogged()">
+                <button class="btn btn-danger buttonTrash" (click)="removeTag(study)"><i class="bi bi-trash"></i></button>
+                <button class="btn btn-primary" (click)="editForm(study)"><i class="bi bi-pencil"></i></button>
+            </div>
+
+        </article>
+
+    </div>
+
 </section>
+
+<div class="backShadow" *ngIf="formStudy" (click)="cancelForm()"></div>
+
+<form class="d-flex flex-column bg-primary formSection" (ngSubmit)="submitForm()"  *ngIf="formStudy">
+    <h3 class="text-light">Estudio</h3>
+
+    <label class="text-light" for="title">Título:</label>
+    <input type="text" id="title" [(ngModel)]="auxStudy.title" name="title" required="true">
+
+    <div class="row">
+        <div class="col-6 lapse">
+            <label class="text-light" for="startExp">Inicio:</label>
+            <input type="date" id="startExp" [(ngModel)]="auxStudy.startLapse" name="startLapse" required="true">
+        </div>
+        <div class="col-6 lapse">
+            <label class="text-light" for="endExp">Final:</label>
+            <input type="date" id="endExp" [(ngModel)]="auxStudy.endLapse" name="endLapse" required="true">
+        </div>
+    </div>
+
+    <label class="text-light" for="institution">Institución:</label>
+    <input type="text" id="institution" [(ngModel)]="auxStudy.institution" name="institution" required="true">
+
+    <label class="text-light" for="img">Certificado:</label>
+    <input class="text-light" type="file" accept="image/*" id="img" [(ngModel)]="auxStudy.img" 
+        name="companyLogo">
+    
+    <label class="text-light" for="description">Descripción del curso:</label>
+    <textarea id="description" [(ngModel)]="auxStudy.description" name="description" required="true"></textarea>
+    
+    <button class="btn btn-light" type="submit">Enviar</button>
+    <button class="btn btn-danger" (click)="cancelForm()">Cancelar</button>
+</form>

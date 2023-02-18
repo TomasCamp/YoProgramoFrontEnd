@@ -1,13 +1,13 @@
-<section class="row px-4 mt-4">
+<section class="row px-sm-4 mt-4 mx-3">
     
     <div class="d-flex justify-content-between">
         <h2>Experiencia</h2>
-        <button class="btn btn-primary" (click)="addForm()"><i class="bi bi-plus"></i></button>
+        <button class="btn btn-primary" (click)="addForm()" *ngIf="isLogged()"><i class="bi bi-plus"></i></button>
     </div>
 
-    <article class="d-flex flex-column flex-md-row flex-wrap p-3 align-items-center" *ngFor = "let experience of experiences">
-        <img class="col-5 col-md-2 img-artic mx-3" src="./assets/images/gris.jpg" alt="">
-        <div class="col-md-8">
+    <article class="d-flex flex-column flex-md-row flex-wrap p-3 align-items-md-center" *ngFor = "let experience of experiences">
+        <img class="col-md-2 img-artic mx-3" [src]="experience.companyLogo" alt="">
+        <div class="col-md-8 mx-3 mx-md-0">
             <h3>{{experience.job}}</h3>
             <p>{{experience.startLapse.replace("-", "/").replace("-", "/")}} - {{experience.endLapse.replace("-", "/").replace("-", "/")}}</p>
             <p>{{experience.activities}}</p>
@@ -22,18 +22,18 @@
 
 <div class="backShadow" *ngIf="formExperience" (click)="cancelForm()"></div>
 
-<form class="d-flex flex-column bg-primary" (ngSubmit)="submitForm()"  *ngIf="formExperience">
+<form class="d-flex flex-column bg-primary formSection" (ngSubmit)="submitForm()"  *ngIf="formExperience">
     <h3 class="text-light">Experiencia</h3>
 
     <label class="text-light" for="job">Puesto de Trabajo:</label>
     <input type="text" id="job" [(ngModel)]="auxExperience.job" name="job" required="true">
 
     <div class="row">
-        <div class="col-6 lapseExp">
+        <div class="col-6 lapse">
             <label class="text-light" for="startExp">Inicio:</label>
             <input type="date" id="startExp" [(ngModel)]="auxExperience.startLapse" name="startLapse" required="true">
         </div>
-        <div class="col-6 lapseExp">
+        <div class="col-6 lapse">
             <label class="text-light" for="endExp">Final:</label>
             <input type="date" id="endExp" [(ngModel)]="auxExperience.endLapse" name="endLapse" required="true">
         </div>

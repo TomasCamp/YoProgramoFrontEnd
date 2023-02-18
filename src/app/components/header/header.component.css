@@ -1,0 +1,36 @@
+.img-portada{
+    height: 60vh;
+    position: relative;
+}
+.img-perfil{
+    height: 30vh;
+}
+.div-perfi{
+    height: 30vh;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin-top: -20vh;
+    overflow: hidden;
+    position: relative;
+}
+.img-and-name{
+    align-items: flex-end;
+    position: relative;
+}
+img{
+    width: 100%;
+}
+.button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.img-hover{
+    filter: brightness(0.7);
+}
+.checks label{
+    width: 135px;
+    margin: 5px 0;
+    user-select: none;
+}

@@ -1,7 +1,57 @@
-<section class="row px-4 mt-4">
-    <h2>Proyectos</h2>
-    <div class="d-flex flex-row flex-wrap justify-content-evenly p-3 align-items-center" 
-    *ngFor = "let project of projects">
-        <app-project-tag [project] = "project"></app-project-tag>
+<section class="row px-sm-4 mt-4 mx-3">
+    <div class="d-flex justify-content-between">
+        <h2>Proyectos</h2>
+        <button class="btn btn-primary" (click)="addForm()" *ngIf="isLogged()"><i class="bi bi-plus"></i></button>
+    </div>
+    <div class="d-flex flex-row flex-wrap justify-content-evenly p-3 align-items-center">
+        <article class="card m-3" style="width: 18rem;" *ngFor = "let project of projects">
+            <img [src]="project.img" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h3 class="card-title">{{project.name}}</h3>
+                <p class="card-text">{{project.startLapse.replace("-", "/").replace("-", "/")}} - {{project.endLapse.replace("-", "/").replace("-", "/")}}</p>
+                <p class="card-text">{{project.description}}</p>
+                <div class="d-flex">
+                    <a [href]="'https://' + project.link" class="btn btn-primary">Ver más</a>
+                    <div class="ms-auto d-flex justify-content-evenly" *ngIf="isLogged()">
+                        <button class="btn btn-danger me-2" (click)="removeTag(project)"><i class="bi bi-trash"></i></button>
+                        <button class="btn btn-primary" (click)="editForm(project)"><i class="bi bi-pencil"></i></button>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
 </section>
+
+<div class="backShadow" *ngIf="formProject" (click)="cancelForm()"></div>
+
+<form class="d-flex flex-column bg-primary formSection" (ngSubmit)="submitForm()"  *ngIf="formProject">
+    <h3 class="text-light">Proyecto</h3>
+
+    <label class="text-light" for="nameProj">Nombre del proyecto:</label>
+    <input type="text" id="nameProj" [(ngModel)]="auxProject.name" name="name" required="true">
+
+    <div class="row">
+        <div class="col-6 lapse">
+            <label class="text-light" for="startProj">Inicio:</label>
+            <input type="date" id="startProj" [(ngModel)]="auxProject.startLapse" name="startLapse" required="true">
+        </div>
+        <div class="col-6 lapse">
+            <label class="text-light" for="endProj">Final:</label>
+            <input type="date" id="endProj" [(ngModel)]="auxProject.endLapse" name="endLapse" required="true">
+        </div>
+    </div>
+
+    <label class="text-light" for="imgProj">Imagen del proyecto:</label>
+    <input class="text-light" type="file" accept="image/*" id="imgProj" [(ngModel)]="auxProject.img" 
+        name="img">
+
+    <label class="text-light" for="linkProj">Link:</label>
+    <input type="text" id="linkProj" [(ngModel)]="auxProject.link" name="link" required="true">
+    
+    <label class="text-light" for="descriptionProj">Descripción del proyecto:</label>
+    <textarea id="descriptionProj" [(ngModel)]="auxProject.description" name="description" required="true"></textarea>
+
+    
+    <button class="btn btn-light" type="submit">Enviar</button>
+    <button class="btn btn-danger" (click)="cancelForm()">Cancelar</button>
+</form>

@@ -1,0 +1,15 @@
+textarea{
+    height: 25vh;
+    resize: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+input{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+img{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}

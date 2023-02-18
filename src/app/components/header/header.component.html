@@ -1,0 +1,69 @@
+<header class="row">
+    <div class="img-portada">
+        <img class="img-portada" [src]="account.coverImage" alt="">
+    </div>
+    <div class="d-flex flex-column align-items-center flex-md-row img-and-name">
+        <div class="div-perfi ms-md-4">
+            <img class="img-perfil" [src]="account.profileImage" alt="">
+        </div>
+        
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center flex-grow-1">
+            <h1>{{account.name}}</h1>
+            <div *ngIf="isLogged()" >
+                <button class="btn btn-primary me-1" (click)="editForm()"><i class="bi bi-pencil"></i></button>
+                <button class="btn btn-outline-secondary" (click)="editSections()"><i class="bi bi-three-dots"></i></button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="backShadow" *ngIf="form" (click)="cancelForm()"></div>
+<form class="d-flex flex-column bg-primary formSection" (ngSubmit)="submitForm()"  *ngIf="form">
+    <h3 class="text-light">Perfil</h3>
+
+    <label class="text-light" for="name">Nombre completo:</label>
+    <input type="text" id="name" [(ngModel)]="auxAccount.name" name="name">
+
+    <label class="text-light" for="improfileImageage">Imagen de perfil:</label>
+    <input class="text-light" type="file" accept="image/*" id="profileImage" [(ngModel)]="auxAccount.profileImage" 
+        name="profileImage">
+
+    <label class="text-light" for="coverImage">Imagen de portada:</label>
+    <input class="text-light" type="file" accept="image/*" id="coverImage" [(ngModel)]="auxAccount.coverImage" 
+        name="coverImage">
+
+    <label class="text-light" for="linkedin">Link a Linkedin:</label>
+    <input type="text" id="linkedin" [(ngModel)]="auxAccount.linkedin" name="linkedin">
+
+    <label class="text-light" for="github">Link a GitHub:</label>
+    <input type="text" id="github" [(ngModel)]="auxAccount.github" name="github">
+    
+    <button class="btn btn-light" type="submit">Enviar</button>
+    <button class="btn btn-danger" (click)="cancelForm()">Cancelar</button>
+</form>
+
+<div class="backShadow" *ngIf="section" (click)="cancelSections()"></div>
+<form class="d-flex flex-column bg-primary formSection" (ngSubmit)="cancelSections()" *ngIf="section">
+    <h3 class="text-light">Secciones</h3>
+
+    <div class="d-flex justify-content-around flex-wrap p-2 checks">
+        <label class="bg-light rounded-pill p-3">
+            <input type="checkbox" id="aboutMe" name="aboutMe" [(ngModel)]="auxSections.aboutMe"> Sobre mi
+        </label>
+        <label class="bg-light rounded-pill p-3">
+            <input type="checkbox" id="experience" name="experience" [(ngModel)]="auxSections.experience"> Experiencia
+        </label>
+        <label class="bg-light rounded-pill p-3">
+            <input type="checkbox" id="study" name="study" [(ngModel)]="auxSections.study"> Estudios
+        </label>
+        <label class="bg-light rounded-pill p-3">
+            <input type="checkbox" id="skill" name="skill" [(ngModel)]="auxSections.skill"> Habilidades
+        </label>
+        <label class="bg-light rounded-pill p-3">
+            <input type="checkbox" id="project" name="project" [(ngModel)]="auxSections.project"> Proyectos
+        </label>
+    </div>
+    <button class="btn btn-danger">Cerrar</button>
+</form>
+
+
