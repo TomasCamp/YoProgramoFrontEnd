@@ -21,4 +21,8 @@ export class Project{
     isComplete(): boolean {
         return this.name != "" && this.startLapse != "" && this.endLapse != "" && this.description != "" && this.link != "";
     }
+
+    getTimeLapse(): string {
+        return `${this.startLapse.split("-").reverse().join("/")} - ${this.endLapse.split("-").reverse().join("/")}`
+    }
 }

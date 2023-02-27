@@ -9,7 +9,8 @@
         <img class="col-md-2 img-artic mx-3" [src]="experience.companyLogo" alt="">
         <div class="col-md-8 mx-3 mx-md-0">
             <h3>{{experience.job}}</h3>
-            <p>{{experience.startLapse.replace("-", "/").replace("-", "/")}} - {{experience.endLapse.replace("-", "/").replace("-", "/")}}</p>
+            <p>{{experience.getTimeLapse()}}</p>
+            <p>{{experience.type}}</p>
             <p>{{experience.activities}}</p>
         </div>
         <div class="ms-auto d-flex flex-md-column justify-content-evenly" *ngIf="isLogged()">
@@ -42,6 +43,13 @@
     <label class="text-light" for="imgCompanyExp">Logo de la Empresa:</label>
     <input class="text-light" type="file" accept="image/*" id="imgCompanyExp" [(ngModel)]="auxExperience.companyLogo" 
         name="companyLogo">
+    
+    <label class="text-light" for="imgCompanyExp">Tipo de trabajo:</label>
+    <select name="tipoExp" id="tipoExp" [ngModel]="auxExperience.type">
+        <option value="Full Time">Full Time</option>
+        <option value="Part Time">Part Time</option>
+        <option value="Independiente">Independiente</option>
+    </select>
     
     <label class="text-light" for="activityExp">Actividades en el puesto:</label>
     <textarea id="activityExp" [(ngModel)]="auxExperience.activities" name="activities" required="true"></textarea>

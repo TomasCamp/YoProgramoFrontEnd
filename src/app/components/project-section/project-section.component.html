@@ -8,7 +8,7 @@
             <img [src]="project.img" class="card-img-top" alt="...">
             <div class="card-body">
                 <h3 class="card-title">{{project.name}}</h3>
-                <p class="card-text">{{project.startLapse.replace("-", "/").replace("-", "/")}} - {{project.endLapse.replace("-", "/").replace("-", "/")}}</p>
+                <p class="card-text">{{project.getTimeLapse()}}</p>
                 <p class="card-text">{{project.description}}</p>
                 <div class="d-flex">
                     <a [href]="'https://' + project.link" class="btn btn-primary">Ver más</a>

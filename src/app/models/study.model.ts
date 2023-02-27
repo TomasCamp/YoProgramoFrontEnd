@@ -21,4 +21,8 @@ export class Study {
     isComplete(): boolean {
         return this.title!= "" && this.institution != "" && this.startLapse != "" && this.endLapse != "" && this.description != "";
     }
+
+    getTimeLapse(): string {
+        return `${this.startLapse.split("-").reverse().join("/")} - ${this.endLapse.split("-").reverse().join("/")}`
+    }
 }

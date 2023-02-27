@@ -14,7 +14,7 @@
             <div class="col-md-8">
                 <h3>{{study.title}}</h3>
                 <p>{{study.institution}}</p>
-                <p>{{study.startLapse.replace("-", "/").replace("-", "/")}} - {{study.endLapse.replace("-", "/").replace("-", "/")}}</p>
+                <p>{{study.getTimeLapse()}}</p>
                 <p>{{study.description}}</p>
             </div>
 

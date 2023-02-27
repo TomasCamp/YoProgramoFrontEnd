@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Experience } from 'src/app/models/experience.model';
 import { AccountHandlingService } from 'src/app/services/account-handling.service';
 import { DataHandlingService } from 'src/app/services/data-handling.service';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-experience-section',
@@ -31,12 +30,12 @@ export class ExperienceSectionComponent implements OnInit{
   }
   editForm(experience: Experience): void {
     this.auxExperience = new Experience(experience.job, experience.startLapse, 
-                                        experience.endLapse, experience.companyLogo, 
+                                        experience.endLapse, experience.type, experience.companyLogo, 
                                         experience.activities, experience.id);
     this.formExperience = true;
   }
   addForm(): void {
-    this.auxExperience = new Experience("", "", "", "", "");
+    this.auxExperience = new Experience("", "", "", "", "", "");
     this.formExperience = true;
   }
   cancelForm(): void {

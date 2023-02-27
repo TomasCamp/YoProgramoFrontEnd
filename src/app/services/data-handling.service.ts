@@ -13,9 +13,9 @@ export class DataHandlingService {
   private img = "./assets/images/gris.jpg";
 
   private experiences: Experience[] = [
-    new Experience(this.texto, "2001-01-01", "2001-01-01", "https://d500.epimg.net/cincodias/imagenes/2019/11/04/lifestyle/1572892359_005767_1572892909_noticia_normal.jpg", this.texto, 0), 
-    new Experience(this.texto, "2001-01-01", "2001-01-01", this.img, this.texto, 1), 
-    new Experience(this.texto, "2001-01-01", "2001-01-01", this.img, this.texto, 2)
+    new Experience(this.texto, "2001-01-01", "2001-01-01","Full Time", "https://d500.epimg.net/cincodias/imagenes/2019/11/04/lifestyle/1572892359_005767_1572892909_noticia_normal.jpg", this.texto, 0), 
+    new Experience(this.texto, "2001-01-01", "2001-01-01", "Part Time", this.img, this.texto, 1), 
+    new Experience(this.texto, "2001-01-01", "2001-01-01", "Autónomo", this.img, this.texto, 2)
   ];
   private studys: Study[] = [
     new Study(this.texto, this.texto, "2001-01-01", "2001-01-01", this.texto, this.img, 0), 
