@@ -11,7 +11,7 @@ export class AccountHandlingService {
     return this.accountLogIn;
   }
   logIn(email: string, password: string): boolean {
-    if (email.includes('@')) {
+    if (email == "hola@gmail.com" && password == "1234") {
       this.accountLogIn = true;
     }
     return this.accountLogIn;

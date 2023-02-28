@@ -34,8 +34,10 @@
     <label class="text-light" for="password">Contraseña:</label>
     <input type="password" id="password" [(ngModel)]="password" name="password">
 
+    <p *ngIf="errorText" class="fw-bold text-danger">{{errorText}}</p>
+
     <div>
-        <button class="btn btn-light" type="submit">Enviar</button>
+        <button class="btn btn-light me-2" type="submit">Enviar</button>
         <button class="btn btn-danger" (click)="cancelForm()">Cancelar</button>
     </div>
     

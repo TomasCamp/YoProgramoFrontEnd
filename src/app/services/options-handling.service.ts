@@ -18,6 +18,5 @@ export class OptionsHandlingService {
     this.sections.study = sections.study;
     this.sections.skill = sections.skill;
     this.sections.project = sections.project;
-    console.log(this.sections);
   }
 }

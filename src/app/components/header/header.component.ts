@@ -47,7 +47,6 @@ export class HeaderComponent implements OnInit {
   }
 
   editSections(): void {
-    console.log(this.sections)
     this.auxSections = new Options(this.sections.aboutMe, this.sections.experience, this.sections.study,
                                   this.sections.skill, this.sections.project)
     this.section = true;

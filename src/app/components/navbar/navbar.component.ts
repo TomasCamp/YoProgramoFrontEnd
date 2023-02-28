@@ -12,6 +12,7 @@ export class NavbarComponent {
   email: string = "";
   password: string = "";
   form: boolean = false;
+  errorText: string = "";
 
   constructor(private accountHandling: AccountHandlingService){
   }
@@ -33,5 +34,6 @@ export class NavbarComponent {
   }
   submitForm(): void {
     if(this.accountHandling.logIn(this.email, this.password)) this.form = false;
+    else this.errorText = "El correo y/o la contraseña es incorrecta."
   }
 }
